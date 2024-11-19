@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate to {{ cause.name }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
+        Support the Cause: {{ cause.name }}
+      </h1>
+
+      <p class="text-gray-600 text-lg mb-4">{{ cause.description }}</p>
+
+      <p class="text-gray-700 text-sm mb-2">
+        <strong class="font-medium">Tagline:</strong> {{ cause.tagline }}
+      </p>
+
+      <p class="text-gray-700 text-sm mb-4">
+        <strong class="font-medium">End Date:</strong> {{ cause.end_date }}
+      </p>
+      <form
+        action="/causes/{{ cause.id }}/create-checkout-session"
+        method="POST"
+        class="flex justify-center"
+      >
+        <button
+          type="submit"
+          class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+        >
+          Donate Now
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
